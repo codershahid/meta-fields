@@ -1,0 +1,85 @@
+// block
+$component: '.shell-nav';
+
+#{$component} {
+  display: none;
+
+  @include above('tablet-large') {
+    display: flex;
+  }
+}
+
+// __elements
+
+#{$component}__list,
+#{$component}__child-list,
+#{$component}__grandChild-list {
+  margin: 0;
+  padding: 0;
+}
+
+#{$component}__items,
+#{$component}__child-items {
+  display: inline-block;
+}
+
+#{$component}__items {
+  &:not(:last-child) {
+    margin-right: 1.7rem;
+  }
+}
+
+#{$component} a {
+  @include use-text-style('menu-items');
+
+  @include below('desktop') {
+    font-size: 0.56rem;
+  }
+  letter-spacing: 0.134rem;
+  text-decoration: none;
+  color: color('sand');
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    color: color('white');
+  }
+}
+
+#{$component}__items > a,
+#{$component}__child-items > a {
+  display: block;
+  padding: 2.66rem 0;
+}
+
+#{$component}__drop-icon {
+  padding-left: 0.3rem;
+}
+
+#{$component}__child-list {
+  display: none;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  padding: 2rem 1rem;
+  width: 100%;
+
+  border-top: 0.1rem solid color('poppy');
+  background-color: color('primary');
+}
+
+#{$component}__items:hover #{$component}__child-list {
+  display: flex;
+}
+
+#{$component}__figure {
+  width: 30%;
+  float: right;
+}
+
+#{$component}__figure img {
+  width: 100%;
+}

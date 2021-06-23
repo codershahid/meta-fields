@@ -1,0 +1,15 @@
+/*
+ * Basic file with global styles.
+ * Files imported here will be available on every page.
+ */
+
+@charset 'UTF-8';
+
+// Normalization
+@import '~accoutrement/sass/init';
+
+// Desing Tokens
+@import "./src/design-tokens/index";
+
+// Global Components
+@import "./src/styles/components/global/index";

@@ -1,0 +1,79 @@
+// Link to source
+/// @link https://www.oddbird.net/accoutrement/docs/color.html
+
+// *** Color palette *** //
+
+$colors: (
+  // Set explicit colors
+  'grey': #808080,
+  'blue': #006fbb,
+  'orange': #f49342,
+  'red': #c8102e,
+  'green': #50b83c,
+  //Lighter
+  'light-grey': #d3d3d3,
+  'light-blue': #0689e2,
+  'light-orange': #fda357,
+  'light-red': #ea6868,
+  'light-green': #50b83c,
+  //Darker
+  'dark-grey': #454f5b,
+  'dark-blue': #084e8a,
+  'dark-orange': #c05717,
+  'dark-red': #bf0711,
+  'dark-green': #108043,
+  //tb
+  'black': #25211e,
+  'link-black': #242019,
+  'black-brown': #2e251c,
+  'cool-mushroom': #b1a7a2,
+  'white': #fff,
+  'rose-gold': #ebcdc3,
+  'poppy': #f48065,
+  'sand': #e6e0dd,
+  'sand-light': #e6e0dd,
+  'sand-dark': #e4ded5
+);
+
+// Use color names that define the purpose of the color.
+// Example: primary or highlight or light-background
+$primary-colors: (
+  'primary': '#black-brown',
+  'primary-100': '#light-red',
+  'primary-200': '#dark-red',
+);
+
+$secondary-colors: (
+  'secondary': '#rose-gold',
+  'secondary-100': '#light-blue',
+  'secondary-200': '#dark-blue',
+);
+
+$text-colors: (
+  'text': '#dark-grey',
+  'link': '#primary',
+  'link-hover': '#primary-100',
+);
+
+$button-colors: (
+  'button': '#primary',
+  'button-hover': '#primary-100',
+  'button-secondary': '#secondary',
+  'button-secondary-hover': '#secondary-100',
+  'button-disable': '#grey',
+);
+
+// Merge everything into the main $colors map…
+@include add-colors(
+  $colors,
+  $primary-colors,
+  $secondary-colors,
+  $text-colors,
+  $button-colors
+);
+
+// Example of usage
+// .example {
+//   color: color('grey');
+//   background-color: color('light-grey');
+// }

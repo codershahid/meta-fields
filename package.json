@@ -1,0 +1,62 @@
+{
+  "name": "Anatta-Shopify-Development",
+  "version": "1.0.0",
+  "description": "Shopify theme development tool.",
+  "private": true,
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "NODE_ENV=development webpack --watch",
+    "build": "webpack",
+    "deploy": "webpack && shopify-themekit deploy",
+    "eslint": "eslint 'src/js/**'",
+    "stylelint": "stylelint '**/*.scss'",
+    "add-all": "git add .",
+    "theme": "shopify-themekit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint && npm run stylelint"
+    }
+  },
+  "keywords": [
+    "shopify",
+    "theme",
+    "webpack"
+  ],
+  "author": "@monkviper",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify/theme-addresses": "^3.1.0",
+    "@shopify/theme-currency": "^3.1.0",
+    "es6-promise": "^4.2.8",
+    "js-cookie": "^2.2.1",
+    "lazysizes": "^5.2.1",
+    "slick-carousel": "^1.8.1",
+    "unfetch": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@shopify/themekit": "^1.1.4",
+    "accoutrement": "^2.1.3",
+    "autoprefixer": "^9.7.5",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "husky": "^4.2.5",
+    "jquery": "^3.5.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "pre-commit": "^1.2.2",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-shell-plugin-next": "^1.1.7"
+  }
+}

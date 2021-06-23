@@ -1,0 +1,92 @@
+<div class="certify">      
+    {% assign _section = section.settings %}
+    <h2 class="certify__heading"> {{ _section.heading }}</h2>
+
+    <div class="certify__keyPoints">
+        {% for block in section.blocks %}  
+            <span class="certify__keyPoint">{{ block.settings.keypoint }}</span>
+        {% endfor %}
+    </div>  
+
+    <div class="certify__images">
+        <picture class="certify__image certify__image--primary"> 
+            <source media="(max-width: 1023px)" data-srcset="{{ _section.imagePrimaryMob | img_url: '248x'}}">
+            <source media="(min-width: 1024px)" data-srcset="{{ _section.imagePrimaryDesk | img_url: '371x'}}">
+            <img class="lazyload" src="{{ _section.imagePrimaryMobile | img_url: '1x'}}" data-src="{{ _section.imagePrimaryMobile | img_url: '248x'}}" alt="tb">  
+        </picture>
+        <picture class="certify__image certify__image--secondary"> 
+            <source media="(max-width: 1023px)" data-srcset="{{ _section.imageSecondaryMob | img_url: '296x'}}">
+            <source media="(min-width: 1024px)" data-srcset="{{ _section.imageSecondaryDesk | img_url: '456x'}}">
+            <img class="lazyload" src="{{ _section.imageSecondaryMobile | img_url: '1x'}}" data-src="{{ _section.imageSecondaryMobile | img_url: '296x'}}" alt="tb">  
+        </picture>
+        <picture class="certify__image certify__image--tertiary"> 
+            <source media="(max-width: 1023px)" data-srcset="{{ _section.imageTertiaryMob | img_url: '256x'}}">
+            <source media="(min-width: 1024px)" data-srcset="{{ _section.imageTertiaryDesk | img_url: '367x'}}">
+            <img class="lazyload" src="{{ _section.imageTertiaryMobile | img_url: '1x'}}" src="{{ _section.imageTertiaryMobile | img_url: '256x'}}" alt="tb">  
+        </picture>
+    </div>
+</div>
+
+<style>
+    .certify{
+        background: url('{{ 'cert-bg_desk.jpg' | asset_img_url: '1440x' }}');
+    }
+</style>
+    
+{% schema %}
+{
+    "name":"certify-section",
+    "settings":[
+        {
+            "type":"text",
+            "id":"heading",
+            "label":"section heading",
+            "default": "Wildly clean, natural <span class='certify__subHeading'>ingredients</span> that work."
+        },
+        {
+            "type":"image_picker",
+            "id":"imagePrimaryMob",
+            "label":"image primary mobile"
+        },
+        {
+            "type":"image_picker",
+            "id":"imagePrimaryDesk",
+            "label":"image primary desk"
+        },
+        {
+            "type":"image_picker",
+            "id":"imageSecondaryMob",
+            "label":"image secondary mobile"
+        },
+        {
+            "type":"image_picker",
+            "id":"imageSecondaryDesk",
+            "label":"image secondary desk"
+        },
+        {
+            "type":"image_picker",
+            "id":"imageTertiaryMob",
+            "label":"image tertiary mobile"
+        },
+        {
+            "type":"image_picker",
+            "id":"imageTertiaryDesk",
+            "label":"image tertiary desk"
+        }
+    ],
+
+    "blocks": [
+        {
+            "type": "select",
+            "name": "Add Key points",
+            "settings": [
+                {
+                    "type":"text",
+                    "id":"keypoint",
+                    "label":"keypoint"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

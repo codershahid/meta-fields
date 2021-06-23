@@ -1,0 +1,77 @@
+$component: '.header-login';
+
+//Block
+
+#{$component} {
+  @include flex(null, center, flex-end, nowrap);
+
+  text-align: right;
+
+  @include below('mobile-large') {
+    transform: translateX(-0.8rem);
+  }
+}
+
+//Element
+
+#{$component}__item {
+  @include flex(null, center, center, nowrap);
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @include above('mobile-large') {
+    @include padding(0.5rem, 1rem, 0.5rem, 1rem);
+
+    &:not(:last-child) {
+      margin-right: 1.4rem;
+    }
+  }
+
+  @include use-text-style('navigation');
+
+  color: color('text');
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+
+  a {
+    color: color('text');
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+#{$component}__item--account {
+  @include below('tablet-large') {
+    display: none;
+  }
+}
+
+#{$component}__item--basket {
+  text-decoration: none;
+  display: flex;
+  position: relative;
+
+  #{$component}__basket-count {
+    position: absolute;
+    top: 0.3rem;
+    left: 2.2rem;
+
+    @include below('mobile-large') {
+      top: -0.4rem;
+      left: 0.9rem;
+    }
+
+    @include flex(null, center, center, nowrap);
+
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    text-align: center;
+
+    font-size: 0.625rem;
+    color: color('poppy');
+  }
+}

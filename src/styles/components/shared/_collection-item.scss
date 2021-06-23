@@ -1,0 +1,114 @@
+/**
+*
+* @Product Item Component
+*
+*/
+// @block
+$component: '.collectionItem';
+
+#{$component} {
+  display: flex !important;
+  flex-direction: column;
+  text-align: center;
+  @include use-text-style('wot-regular');
+
+  @include above('tablet-large') {
+    margin: 3rem 0;
+    flex-direction: column-reverse;
+  }
+}
+
+.slick-current #{$component} {
+  @include above('tablet-large') {
+    width: 126%;
+    flex-direction: row;
+    margin: 0;
+  }
+}
+
+// @__element
+#{$component}__image {
+  margin: 0.8rem auto;
+  width: 29%;
+  @include above('tablet-large') {
+    margin: 2rem auto;
+    width: 16%;
+  }
+}
+.slick-current #{$component}__image {
+  @include above('tablet-large') {
+    width: 41%;
+    margin: 3rem auto;
+  }
+}
+
+#{$component}__content {
+  text-align: center;
+
+  @include above('tablet') {
+    padding: 0 2.5rem;
+  }
+  @include above('tablet-large') {
+    padding: 0;
+  }
+
+  @include above('desktop') {
+    padding-left: 3.6rem;
+  }
+}
+
+.slick-current #{$component}__content {
+  @include above('tablet-large') {
+    text-align: left;
+  }
+}
+
+#{$component}__iteration {
+  padding: 1rem 0;
+  font-size: rem(11px);
+  font-weight: normal;
+
+  @include above('tablet-large') {
+    font-size: rem(13px);
+  }
+}
+
+#{$component}__title {
+  font-size: rem(24px);
+  font-weight: 400;
+
+  @include above('tablet-large') {
+    font-size: rem(36px);
+    margin: 0.6rem 0 1.2rem 0;
+  }
+}
+
+#{$component}__description,
+#{$component}__btn {
+  display: none;
+
+  @include above('tablet') {
+    display: block;
+  }
+  @include above('tablet-large') {
+    display: none;
+  }
+}
+
+.slick-current #{$component}__description,
+.slick-current #{$component}__btn {
+  display: block;
+}
+
+#{$component}__description {
+  font-size: rem(14px);
+}
+
+#{$component}__btn {
+  margin: auto;
+  @include above('tablet-large') {
+    margin: 0;
+    margin-top: 2.1rem;
+    min-width: max-content;
+  }
+}

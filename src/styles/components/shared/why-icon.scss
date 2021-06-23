@@ -1,0 +1,59 @@
+$component: '.whyIcon';
+
+// block
+#{$component} {
+  display: flex;
+  align-items: center;
+  &:not(:last-child) {
+    margin-bottom: 2.8rem;
+  }
+
+  @include above('tablet-large') {
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+// __element
+#{$component}__image {
+  flex: 1;
+
+  & svg {
+    @include below('tablet-large') {
+      width: 3.5rem;
+      height: auto;
+    }
+  }
+}
+
+#{$component}__caption {
+  flex: 2.5;
+
+  @include above('tablet-large') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: min-content;
+    text-align: center;
+  }
+}
+
+#{$component}__title,
+#{$component}__btn {
+  display: block;
+  @include use-text-style('wot-regular');
+  text-transform: uppercase;
+}
+
+#{$component}__title {
+  font-size: rem(14px);
+  letter-spacing: rem(1.08px);
+  margin-bottom: 0.8rem;
+
+  @include above('tablet-large') {
+    margin: 1.7rem 0 3rem 0;
+    line-height: 1.2;
+  }
+}

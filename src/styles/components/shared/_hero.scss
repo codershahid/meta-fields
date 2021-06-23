@@ -1,0 +1,85 @@
+$component: '.hero';
+
+// block
+#{$component} {
+  @include padding(2.7rem, 0, 1rem, 1.2rem);
+  @include above('tablet-large') {
+    @include padding(6.3rem, 0, 1rem, 8.2rem);
+  }
+  color: color('primary');
+}
+
+// __elements
+#{$component}__content {
+  padding-right: 0.5rem;
+  margin-bottom: 3rem;
+
+  @include above('tablet'){
+    margin-bottom: 2.5rem;
+}
+
+#{$component}__heading {
+  @include use-text-style('title-ivy');
+  letter-spacing: 0.16rem;
+
+  @include above('tablet-large') {
+    line-height: 1;
+    font-size: 4rem;
+  }
+
+  & span {
+    display: block;
+    line-height: 1.5;
+    @include below('mobile-large') {
+      margin-bottom: 0.4rem;
+      @include use-text-style('title-wot');
+      font-size: 0.75rem;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+#{$component}__cta {
+  margin-top: 0.9rem;
+  @include above('tablet-large') {
+    margin-top: 2.8rem;
+  }
+}
+
+#{$component}__images {
+  position: relative;
+} 
+
+#{$component}__image {
+  display: block;
+}
+
+#{$component}__image--primary {
+  text-align: right;
+  @include above('mobile-large') {
+    width: 70%;
+    margin-left: auto;
+  }
+  @include above('desktop') {
+    width: auto;
+  }
+  & img {
+    @include below('mobile-large') {
+      width: rem(250rem);
+    }
+  }
+}
+
+#{$component}__image--secondary {
+  position: absolute;
+  bottom: -5.5rem;
+  @include above('mobile-large') {
+    top: 5.6rem;
+    left: 3.5rem;
+    width: 30%;
+  }
+  @include above('desktop') {
+    width: auto;
+  }
+}

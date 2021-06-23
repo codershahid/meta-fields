@@ -1,0 +1,7 @@
+development:
+  password: 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
+  theme_id: '124310651079'
+  store: asssign-store.myshopify.com
+  directory: dist/
+  ignore_files:
+    - config/settings_data.json

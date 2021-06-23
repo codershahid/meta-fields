@@ -1,0 +1,54 @@
+/**
+*
+* @HeroCollection Component
+*
+*/
+// @block
+$component: '.collection';
+
+#{$component} {
+  position: relative;
+  padding: 2rem 0;
+
+  @include above('tablet-large') {
+    padding: 7.4rem 0;
+  }
+
+  .sectionTitle {
+    @include above('mobile-large') {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+// @__element
+
+#{$component}__grid {
+  margin-top: 2.4rem;
+  @include above('mobile-large') {
+    margin-top: 4.6rem;
+  }
+}
+
+#{$component}__arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(65px);
+  height: rem(65px);
+  margin: 2.5rem auto 0 auto;
+  border-radius: 50%;
+  border: 1px solid color('black-brown');
+
+  & button {
+    border: none;
+    padding: 0.5rem;
+    margin: 0;
+  }
+
+  @include above('tablet-large') {
+    position: absolute;
+    left: 59%;
+    top: 35rem;
+  }
+}

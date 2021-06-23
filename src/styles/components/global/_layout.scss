@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: color('cool-mushroom');
+}
+body {
+  position: relative;
+  z-index: -2;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: color('sand');
+}
+
+.container,
+.container-fluid {
+  @include padding(null, size('gutter'), null, size('gutter'));
+  @include margin(null, auto, null, auto);
+
+  width: 100%;
+}
+
+.container {
+  @include above('tablet-large') {
+    max-width: 78.375rem;
+    //max-width: size('page-desktop');
+  }
+}
+
+.row {
+  @include flex(null, center, null, wrap);
+  @include margin(null, -size('gutter'), null, -size('gutter'));
+
+  @include above('tablet-large') {
+    @include flex(null, center, null, nowrap);
+  }
+}
+
+.col,
+.cell {
+  @include margin(null, size('gutter'), null, size('gutter'));
+}
+
+.col {
+  flex: inherit;
+  width: 100%;
+
+  @include above('tablet-large') {
+    flex: 1;
+  }
+}
+
+.content {
+  @include margin(4rem, null, null, null);
+}
+
+.hide {
+  display: none;
+}
+
+.no-list {
+  @include flex(null, center, null, wrap);
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.responsive-image__image {
+  width: 100%;
+}

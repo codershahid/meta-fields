@@ -1,0 +1,116 @@
+<footer class="footer">
+
+  <div class="row">
+
+    <div class="footer__logo col-12 col-lg-3">
+      <img src="{{section.settings.tb_logo | img_url: 'master' }}" alt="tb">
+    </div>
+
+    <div class="col-12 col-lg-9">
+
+      <div class="row">
+        <div class="footer__newsletter col-12 col-lg-5">
+          <h5 class="footer__newsletterTitle">{{section.settings.newsletter_title}}</h5>
+          <input type="text" class="footer__newsletterInput" placeholder="{{section.settings.newsletter_placeholder}}">
+          <button class="footer__newsletterBtn">{{section.settings.newsletter_button}}</button>
+          <p class="footer__newsletterTerms">{{section.settings.newsletter_terms}}</p>
+        </div>
+        <div class="footer__social col-12 col-lg-7">
+          <h5 class="footer__socialTitle">Follow Us</h5>
+          {% for block in section.blocks %}  
+          <a href="{{ block.settings.icon_link}}" class="footer__socialIcon">{{ block.settings.icon_svg}}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="row footer__menu">
+        {% for link in linklists[section.settings.footer_menu].links %}
+          <div class="accordion col-12 {% if forloop.index == 1 %} col-lg-6 {% else %} col-lg-3 {% endif %} ">
+            <div class="accordion__head">
+              <h6 class="accordion__title">{{ link.title }}</h6>
+              <span class="accordion__icon"> {% render 'icon-angle-down' %} </span>
+            </div>
+            <div class="accordion__collapse">
+              <ul class="footer__linkList {% if forloop.index == 1 %} footer__linkList--shop {% endif %} ">
+                {% for childlink in link.links %}
+                  <li class="footer__linkItem"><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+
+    <div class="row footer__legal">
+      <div class="footer__copyright col-12 col-lg-6"> &copy; <span id="footerDate"></span> True Botanicals. All Rights Reserved.</div>
+      <div class="footer__reads col-12 col-lg-6"> 
+        <a href="" class="footer__termsLink">Terms of Use</a>
+        <a href="" class="footer__policyLink">Privacy Policy</a>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+{% schema %}
+{
+    "name":"Footer",
+    "settings":[
+        {
+          "type":"image_picker",
+          "id":"tb_logo",
+          "label":"tb logo"
+        },
+        {
+            "type":"text",
+            "id":"newsletter_title",
+            "label":"newsletter title",
+            "default":"Sign Up for Offers, Product News, and Tips"
+        },
+        {
+            "type":"text",
+            "id":"newsletter_placeholder",
+            "label":"newsletter placeholder",
+            "default":"Enter your phone or email"
+        },
+        {
+            "type":"text",
+            "id":"newsletter_button",
+            "label":"newsletter button",
+            "default":"Send"
+        },
+        {
+            "type":"text",
+            "id":"newsletter_terms",
+            "label":"newsletter terms",
+            "default":"By subscribing to True Botanicals Text Alerts you consent to receive a varying number of marketing messages via automated technology and agree to the terms and conditions. Message and data rates may apply. Reply HELP for help or STOP to opt-out."
+        },
+        {
+          "type":"link_list",
+          "id":"footer_menu",
+          "label":"Footer Menu"
+      }
+    ],
+
+    "blocks": [
+        {
+            "type": "select",
+            "name": "social icons",
+            "settings": [
+                {
+                    "type":"html",
+                    "id":"icon_svg",
+                    "label":"svg code"
+                },
+                {
+                    "type": "url",
+                    "id": "icon_link",
+                    "label": "icon link"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

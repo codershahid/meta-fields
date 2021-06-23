@@ -1,0 +1,60 @@
+@import 'navigation';
+@import 'header-login';
+@import 'header-search';
+@import 'mobile-navigation';
+
+#shopify-section-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+// block
+$component: '.shell-header';
+
+#{$component} {
+  position: relative;
+}
+
+//Elements__
+#{$component}__header {
+  display: flex;
+  align-items: center;
+
+  padding: 0 4.4rem;
+  background-color: color('primary');
+
+  @include below('tablet') {
+    padding: 0 0.8rem;
+  }
+}
+
+#{$component}__nav-block {
+  flex: 1;
+}
+
+#{$component}__logo-block {
+  padding: 1.5rem 0;
+  transform: translate(-1.3rem, 0.06rem);
+
+  @include above('tablet') {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    transform: none;
+  }
+
+  @include below('tablet') {
+  }
+}
+
+#{$component}__login-block {
+  flex: 1;
+  justify-self: right;
+}
+
+.shell-logo {
+  display: flex;
+  color: color('white');
+}

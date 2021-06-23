@@ -1,0 +1,65 @@
+/**
+*
+* @Product Item Component
+*
+*/
+// @block
+$component: '.productItem';
+
+#{$component} {
+  flex: 1;
+  @include use-text-style('wot-regular');
+  color: color('link-black');
+  @include below('mobile-large') {
+    max-width: rem(248px);
+    margin: auto;
+  }
+}
+
+// @__element
+#{$component}__image {
+  display: block;
+  @include above('desktop') {
+    width: rem(356px);
+  }
+}
+
+#{$component}__content {
+  @include padding(0.8rem, 0, 2.6rem, 0.7rem);
+  text-align: left;
+  @include above('mobile-large') {
+    @include padding(1.4rem, 0, 2.6rem, 1.5rem);
+  }
+}
+
+#{$component}__rating {
+  & span {
+    font-size: rem(11px);
+  }
+}
+
+#{$component}__title {
+  display: block;
+  @include padding(0.5rem, 0, 0.3rem, 0);
+  font-size: rem(14px);
+  letter-spacing: rem(1.08px);
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: color('link-black');
+}
+
+#{$component}__price,
+#{$component}__btn {
+  font-size: rem(12rem);
+  font-weight: 500;
+}
+
+#{$component}__btn {
+  color: color('poppy');
+  text-transform: uppercase;
+  padding: 0 0.2rem;
+  word-spacing: 3px;
+}
+
+// @--modifier

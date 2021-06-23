@@ -1,0 +1,54 @@
+$component: '.accordion';
+
+#{$component} {
+  perspective: 900;
+  margin: 0 auto;
+  transition: all 0.25s ease-in-out;
+  animation: flipdown 1s ease both;
+
+  &:not(:last-child) {
+    margin-bottom: 1em;
+    @include above('tablet-large') {
+      margin-bottom: 1.5em;
+    }
+  }
+}
+
+#{$component}__head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+#{$component}__title {
+  @include use-text-style('wot-regular');
+  font-size: rem(14px);
+  text-transform: capitalize;
+  color: color('rose-gold');
+}
+
+#{$component}__icon {
+  display: block;
+  transition: transform ease 0.4s;
+
+  @include above('tablet-large') {
+    display: none;
+  }
+}
+
+.active #{$component}__icon {
+  transform: rotate(180deg);
+}
+
+#{$component}__collapse {
+  height: 0;
+  overflow: hidden;
+  transition: all ease 0.4s;
+
+  @include above('tablet-large') {
+    height: auto;
+  }
+}

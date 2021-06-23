@@ -1,0 +1,107 @@
+{% assign _section = section.settings %}
+<div class="feature">
+<div class="feature__bgImage"> 
+    {% include 'responsive-image' with image: section.settings.featureBg, image_class: "css-class", wrapper_class: "wrapper-css-class", max_width: 700, max_height: 800 %}
+</div>
+<div class="feature__cards">
+    <div class="card card--quiz">
+        {% if _section.quizTitle != blank %}
+        <h2 class="card__title"> {{ _section.quizTitle }} </h2>  
+        {% endif %}
+        {% if _section.quizDescrip != blank %}
+        <p class="card__descrip"> {{ _section.quizDescrip }} </p>  
+        {% endif %}
+        {% if _section.quizBtnValue != blank %}
+        <a class="btn btn--secondary card__btn" href="{{_section.quizBtnLink}}" role="button"> {{ _section.quizBtnValue }} </a>  
+        {% endif %}
+    </div>
+    
+    <div class="card card--consult">
+        {% if _section.consultTitle != blank %}
+        <h2 class="card__title"> {{ _section.consultTitle }} </h2>  
+        {% endif %}
+        {% if _section.consultDescrip != blank %}
+        <p class="card__descrip"> {{ _section.consultDescrip }} </p>  
+        {% endif %}
+        {% if _section.consultBtnValue != blank %}
+        <a class="btn btn--secondary btn--white card__btn" href="{{_section.consultBtnLink}}" role="button"> {{ _section.consultBtnValue }} </a>  
+        {% endif %}
+    </div>
+</div>
+
+  <picture class="feature__image"> 
+    <source media="(max-width: 767px)" data-srcset="{{ _section.featureMobile | img_url: '320x'}}">
+    <source media="(min-width: 768px)" data-srcset="{{ _section.featureDesk | img_url: '705x'}}">
+    <img class="lazyload" src="{{ _section.featureMobile | img_url: '1x'}}" data-src="{{ _section.featureMobile | img_url: '320x'}}" alt="tb">  
+  </picture>
+
+</div>
+
+{% schema %}
+{
+  "name":"feature section",
+  "settings":[
+    {
+        "type":"text",
+        "id":"quizTitle",
+        "label":"Quiz Title",
+        "default":"Take the Skin Quiz"
+    },
+    {
+        "type":"text",
+        "id":"quizDescrip",
+        "label":"Quiz Description",
+        "default":"Nourish aging skin with nature’s most potent ingredients, reducing the appearance of fine lines and wrinkles."
+    },
+    {
+        "type":"text",
+        "id":"quizBtnValue",
+        "label":"quiz button value",
+        "default":"Skin Quiz"
+    },
+    {
+        "type":"url",
+        "id":"quizBtnLink",
+        "label":"quiz button link"
+    },
+    {
+        "type":"text",
+        "id":"consultTitle",
+        "label":"consult Title",
+        "default":"Speak to a Skin Consultant"
+    },
+    {
+        "type":"text",
+        "id":"consultDescrip",
+        "label":"consult Description",
+        "default":"If you are still unsure about your skin needs, speak to one of our consultants at NO COST to you."
+    },
+    {
+        "type":"text",
+        "id":"consultBtnValue",
+        "label":"consult button value",
+        "default":"SCHEDULE CONSULTATION"
+    },
+    {
+        "type":"url",
+        "id":"consultBtnLink",
+        "label":"consult button link"
+    },
+    {
+        "type":"image_picker",
+        "id":"featureMobile",
+        "label":"feature image mobile"
+    },
+    {
+        "type":"image_picker",
+        "id":"featureDesk",
+        "label":"feature image desk"
+    },
+    {
+        "type":"image_picker",
+        "id":"featureBg",
+        "label":"feature background"
+    }
+  ]
+}
+{% endschema %}

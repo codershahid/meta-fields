@@ -1,0 +1,74 @@
+{% assign _section = section.settings %}
+<div class="why">
+    <p class="why__story">{{ _section.story }}</p>
+    <picture class="why__image"> 
+        <source media="(max-width: 1023px)" data-srcset="{{ _section.image_mobile | img_url: '236x'}}">
+        <source media="(min-width: 1024px)" data-srcset="{{ _section.image_desktop | img_url: '705x'}}">
+        <img class="lazyload" src="{{ _section.image_desktop | img_url: '1x'}}" data-src="{{ _section.image_mobile | img_url: '705x'}}" alt="tb">  
+    </picture>
+    <div class="why__iconGrid">
+        {% for block in section.blocks %}  
+            <div class="whyIcon">
+                <div class="whyIcon__image">{{ block.settings.svg}}</div>
+                <div class="whyIcon__caption">
+                    <span class="whyIcon__title">{{ block.settings.title }}</span>
+                    <a class="btn btn--secondary" href="{{block.settings.button_link}}">{{block.settings.button_name}}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"why",
+    "settings":[
+        {
+            "type":"text",
+            "id":"story",
+            "label":"story paragraph",
+            "default":"True Botanicals liberates your skin’s glow with indulgent self-care that makes a profound difference in your skin’s health, as well as the health of the planet."
+        },
+        {
+            "type":"image_picker",
+            "id":"image_mobile",
+            "label":"image mobile"
+        },
+        {
+            "type":"image_picker",
+            "id":"image_desktop",
+            "label":"image desktop"
+        }
+    ],
+
+    "blocks": [
+        {
+            "type": "select",
+            "name": "Add icons",
+            "settings": [
+                {
+                    "type":"html",
+                    "id":"svg",
+                    "label":"svg code"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "title"
+                },
+                {
+                    "type": "text",
+                    "id": "button_name",
+                    "label": "button name",
+                    "default": "Learn More"
+                },
+                {
+                    "type": "url",
+                    "id": "button_link",
+                    "label": "button link"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

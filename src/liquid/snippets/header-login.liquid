@@ -1,0 +1,18 @@
+<div class="header-login">
+  <a href="javascript:void(0);" class="header-login__item header-login__item--search search-window-open">
+    {% render 'icon-search-header' %}
+  </a> 
+  
+  <a href="/account" class="header-login__item header-login__item--account">
+    {% render 'icon-user' %}
+  </a>
+  
+  <a href="/cart" class="header-login__item header-login__item--basket">
+    {% render 'icon-cart' %}
+    {% if cart.item_count > 0 %}
+    <span class="header-login__basket-count">{{ cart.item_count }}</span>
+    {% else %}
+    <span class="header-login__basket-count">{% render 'icon-bag-oval' %}</span>
+    {% endif %}
+  </a> 
+</div>

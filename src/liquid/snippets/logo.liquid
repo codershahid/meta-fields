@@ -1,0 +1,30 @@
+{% if template.name == 'index' %}
+<div>
+{% else %} 
+<div class="h1">
+{% endif %}
+  <a href="/" class="shell-logo">
+    {% if section.settings.svgLogo != blank %}
+      {{section.settings.svgLogo}}
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </a>
+{% if template.name == 'index' %}
+</div>
+{% else %}
+</div>
+{% endif %}
+
+<style>
+  .shell-logo svg{
+    width: {{section.settings.logo_max_width}}px;
+    height: auto;
+  }
+
+  @media (max-width : 767px) {
+    .shell-logo svg {
+      width: 161px;
+    }
+  }
+</style>

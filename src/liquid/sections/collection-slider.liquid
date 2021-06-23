@@ -1,0 +1,44 @@
+<div class="collection">
+  <h3 class="sectionTitle">{{section.settings.heading}}</h3>
+  <div class="collection__grid forSlick">
+    {% for block in section.blocks %}  
+      {% assign collection = collections[block.settings.slider_collection] %}
+      {% include 'collection-item' %}
+    {% endfor %}
+  </div>
+  <div class="collection__arrows"></div>
+</div>
+  
+  {% schema %}
+    {
+    "name": "Collection Slider",
+    "settings": [
+      {
+        "type":"text",
+        "id":"heading",
+        "label":"Heading",
+        "default": "Our Collections"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "Collection",
+      "name": "Our Collections",
+      "settings": [
+          {
+              "type":"collection",
+              "id":"slider_collection",
+              "label":"Select collection"
+          }
+      ]
+    }
+    ],
+    "presets": [
+        {
+          "name": "collection slider",
+          "category": "Collection"
+        }
+      ] 
+    }
+  {% endschema %}
+  

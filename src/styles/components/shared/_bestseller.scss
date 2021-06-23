@@ -1,0 +1,34 @@
+/**
+*
+* @HeroCollection Component
+*
+*/
+// @block
+$component: '.bestseller';
+
+#{$component} {
+  @include padding(6.4rem, 2.2rem, 1.2rem, 2.2rem);
+  text-align: center;
+  @include above('mobile-large') {
+    padding-top: 9rem;
+    margin: auto;
+    max-width: 1068px;
+  }
+}
+// @__element
+#{$component}__title {
+  margin-bottom: 1.6rem;
+  @include above('mobile-large') {
+    margin-bottom: 3.7rem;
+  }
+}
+
+#{$component}__grid {
+  margin-top: 2.4rem;
+
+  @include above('mobile-large') {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+}

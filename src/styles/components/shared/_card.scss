@@ -1,0 +1,45 @@
+$component: '.card';
+
+#{$component} {
+  @include padding(1.5rem, 1.6rem, 3rem, 1.6rem);
+  width: rem(245px);
+
+  @include above('tablet-large') {
+    @include padding(3rem, 3rem, 3rem, 3rem);
+    width: rem(378px);
+  }
+}
+
+#{$component}--quiz {
+  background-color: color('sand-dark');
+  color: color('black-brown');
+}
+
+#{$component}--consult {
+  background-color: color('black-brown');
+  color: color('white');
+}
+
+#{$component}__title {
+  width: 78%;
+  line-height: 1.2;
+  @include use-text-style('ivy-light');
+  font-size: rem(32px);
+  letter-spacing: rem(2px);
+  @include above('tablet-large') {
+    width: 60%;
+    font-size: rem(36px);
+    line-height: 1.5;
+  }
+}
+
+#{$component}__descrip {
+  margin-bottom: 1.8rem;
+  @include use-text-style('wot-light');
+  font-size: rem(14px);
+}
+
+#{$component}__btn {
+  font-size: rem(11px);
+  letter-spacing: rem(2px);
+}

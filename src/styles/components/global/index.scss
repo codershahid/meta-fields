@@ -1,0 +1,17 @@
+/*
+ * The file collects all global styles.
+ */
+
+// Core
+@import 'typography';
+@import 'layout';
+@import 'forms';
+@import 'buttons';
+@import 'layout-grid';
+
+// Site Header
+@import 'announcement';
+@import 'header';
+
+// Footer
+@import 'footer';

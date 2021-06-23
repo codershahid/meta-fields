@@ -1,0 +1,20 @@
+
+{%- comment -%}
+{% assign page = pages.homepage %}
+<div class="container">  
+  {{ page.content }}
+</div>
+{%- endcomment -%}
+
+<picture class="bgContainer">
+  <source media="(max-width: 639px" srcset="{{ 'bgImg-mob.png' | | asset_img_url: 'master'  }}">
+  <source media="(min-width: 640px" srcset="{{ 'bgImg-desk.png' | | asset_img_url: '1440x'  }}">
+  <img src="{{ 'bgImg-mob.png' | asset_img_url: 'master' }}" alt="tb-bg">  
+</picture>
+
+{% section 'hero' %}
+{% section 'bestseller' %}
+{% section 'why' %}
+{% section 'certify-section' %}
+{% section 'collection-slider' %}
+{% section 'feature-section' %}

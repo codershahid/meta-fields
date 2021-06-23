@@ -1,0 +1,12 @@
+$component: '.sectionTitle';
+
+#{$component} {
+  text-align: center;
+  letter-spacing: 2px;
+  @include use-text-style('ivy-light');
+  font-size: rem(32px);
+  @include above('tablet-large') {
+    font-size: rem(48px);
+    letter-spacing: rem(1.5px);
+  }
+}

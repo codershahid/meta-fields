@@ -1,0 +1,47 @@
+{% assign _section = section.settings %}
+<div class="bestseller">
+  <h3 class="sectionTitle bestseller__title">{{_section.title}}</h3>
+  <a href="{{_section.btn_link}}" class="btn btn--secondary">{{_section.btn_value}}</a>
+  <div class="bestseller__grid">
+      {% assign collection = collections[_section.best_seller] %}
+      {% for product in collection.products %}
+        {% include 'product-item' %}
+      {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Bestseller",
+  "settings": [
+    {
+      "type":"text",
+      "id":"title",
+      "label":"Section Title",
+      "default": "Our Rituals"
+    },
+    {
+      "type":"text",
+      "id":"btn_value",
+      "label":"Button Value",
+      "default": "Shop Bestsellers"
+    },
+    {
+      "type":"url",
+      "id":"btn_link",
+      "label":"button link"
+    },
+    {
+      "type":"collection",
+      "id":"best_seller",
+      "label":"products in bestseller collection"
+    }
+  ],
+  "presets": [
+      {
+        "name": "bestseller section",
+        "category": "Collection"
+      }
+    ] 
+  }
+{% endschema %}

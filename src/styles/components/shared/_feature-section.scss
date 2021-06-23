@@ -1,0 +1,89 @@
+$component: '.feature';
+
+#{$component} {
+  position: relative;
+  padding-top: 4rem;
+
+  @include above('tablet') {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4.6rem;
+  }
+}
+
+#{$component}__bgImage {
+  position: absolute;
+  z-index: -1;
+}
+
+#{$component}__cards {
+  @include padding(0, 1.2rem, 0, 1.2rem);
+  @include above('tablet') {
+    padding: 0;
+  }
+  // transform: translateY(62px);
+
+  .card {
+    @include above('tablet-large') {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .card--quiz {
+    margin-right: auto;
+    padding-bottom: 4rem;
+
+    @include above('tablet') {
+      left: 4.6rem;
+      top: 5.6rem;
+    }
+  }
+  .card--consult {
+    margin-left: auto;
+    margin-top: -1rem;
+    padding-bottom: 2.4rem;
+
+    @include above('tablet') {
+      left: rem(260px);
+      transform: translate(8rem, -7rem);
+    }
+
+    @include above('tablet-large') {
+      padding-bottom: 3.2rem;
+      left: rem(409px);
+      top: rem(-52px);
+      transform: translate(-2rem, -2rem);
+    }
+
+    @include above('desktop') {
+      top: -4.2rem;
+      transform: translate(0);
+    }
+
+    .card__title {
+      @include above('tablet-large') {
+        width: 92%;
+      }
+    }
+  }
+}
+
+#{$component}__image {
+  position: relative;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  margin-top: -1.8rem;
+  text-align: center;
+
+  @include above('tablet') {
+    flex-basis: 50%;
+    text-align: right;
+    transform: translateY(0);
+  }
+
+  @include above('desktop') {
+    flex-basis: 100%;
+  }
+}

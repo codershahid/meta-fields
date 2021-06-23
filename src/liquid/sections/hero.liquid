@@ -1,0 +1,78 @@
+{% assign _section = section.settings %}
+<div class="hero">
+  <div class="hero__content">
+    {% if _section.heading != blank %}
+      <h2 class="hero__heading">
+        <span>{{ _section.sub_heading }}</span> 
+        {{ _section.heading }} 
+      </h2>  
+    {% endif %}
+
+    {% if _section.btn_value != blank %}
+      <a class="btn btn--primary hero__cta" href="javascript:void(0);" role="button"> {{ _section.btn_value }} </a>  
+    {% endif %}
+  </div>
+  <div class="hero__images">
+      <picture class="hero__image hero__image--primary"> 
+        <source media="(max-width: 639px)" srcset="{{ _section.image_primary_mobile | img_url: '639x'}}">
+        <source media="(min-width: 640px)" srcset="{{ _section.image_primary_desk | img_url: '925x'}}">
+        <img src="{{ _section.image_primary_mobile | img_url: '639x'}}" alt="tb">  
+      </picture>
+
+      <picture class="hero__image hero__image--secondary">
+        <source media="(max-width: 639px)" srcset="{{ _section.image_secondary_mobile | img_url: '131x'}}">
+        <source media="(min-width: 640px)" srcset="{{ _section.image_secondary_desk | img_url: '410x'}}">
+        <img src="{{ _section.image_secondary_mobile | img_url: '131x'}}" alt="tb"> 
+      </picture>
+  </div>
+</div>
+{% schema %}
+{
+  "name":"Hero",
+  "settings":[
+    {
+        "type":"text",
+        "id":"sub_heading",
+        "label":"Sub Heading",
+        "default":"Pure Radiance Sugar Scrub:"
+    },
+    {
+        "type":"text",
+        "id":"heading",
+        "label":"Heading",
+        "default":"Exfoliating and glow-inducing"
+    },
+    {
+        "type":"text",
+        "id":"btn_value",
+        "label":"button value",
+        "default":"SHOP NOW"
+    },
+    {
+        "type":"url",
+        "id":"btnLink",
+        "label":"button link"
+    },
+    {
+        "type":"image_picker",
+        "id":"image_primary_mobile",
+        "label":"primary image mobile"
+    },
+    {
+        "type":"image_picker",
+        "id":"image_primary_desk",
+        "label":"primary image desk"
+    },
+    {
+        "type":"image_picker",
+        "id":"image_secondary_mobile",
+        "label":"secondary image mobile"
+    },
+    {
+        "type":"image_picker",
+        "id":"image_secondary_desk",
+        "label":"secondary image desktop"
+    }
+  ]
+}
+{% endschema %}

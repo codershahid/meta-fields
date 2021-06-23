@@ -1,0 +1,9 @@
+<div class="collectionItem">
+    <img class="collectionItem__image" src="{{ collection.image | img_url: '1x' }}" data-lazy="{{ collection.image | img_url: 'master' }}" alt="tb-collection">
+    <div class="collectionItem__content">
+        <h6 class="collectionItem__iteration"> {{ forloop.index }}/{{ forloop.length }} </h6> 
+        <h3 class="collectionItem__title"> {{ collection.title }} </h3> 
+        <span class="collectionItem__description">{{ collection.description }}</span>
+        <a href="{{ collection.url }}" class="btn btn--secondary collectionItem__btn">shop {{ collection.title }} collection</a>
+    </div> 
+</div>

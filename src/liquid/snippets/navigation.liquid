@@ -1,0 +1,33 @@
+<nav class="shell-nav" role="navigation">
+    <ul class="shell-nav__list">
+        {% for link in linklists[section.settings.menu].links %}
+            {% if link.links != blank %}
+            <li class="shell-nav__items">
+                <a href="{{ link.url }}">{{ link.title }} 
+                    {% render 'icon-arrow-down' %}
+                </a>
+                <ul class="shell-nav__child-list">
+                    {% for childlink in link.links %}
+                       {% if childlink.links != blank %}
+                            <li class="shell-nav__child-items">
+                                <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                                <ul class="shell-nav__grandChild-list">
+                                    {% for grandChildLink in childlink.links %}
+                                        <li class="grandChild-items">
+                                            <a href="{{ grandChildLink.url }}">{{ grandChildLink.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                             <li class="shell-nav__child-items"><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                       {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% else %}
+                <li class="shell-nav__items"><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

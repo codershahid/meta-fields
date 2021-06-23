@@ -1,0 +1,15 @@
+<div class="productItem" data-tags="{{ product.tags }}">
+    <a href="{{ product.url | within: collection }}" class="productItem__image">
+    {% include 'responsive-image' with image: product.featured_image, max_width: 700, max_height: 800 %}
+    </a>
+    <div class="productItem__content">
+        <div class="productItem__rating"> {% render 'icon-stars' %} <span>223</span> </div>
+
+        <a class="productItem__title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        
+        <div class="productItem__bottom-row">
+            <span class="productItem__price">{{ product.price | money_without_trailing_zeros }}</span>
+            <a class="productItem__btn" href="{{ product.url | within: collection }}" role="button">Add to bag</a>
+        </div>
+    </div>
+</div>

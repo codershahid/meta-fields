@@ -1,0 +1,56 @@
+.btn,
+button,
+input[type='button'] {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  @include padding(0.6rem, 2rem, 0.6rem, 2rem);
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid color('poppy');
+  @include use-text-style('btn-font');
+  letter-spacing: rem(1.5px);
+  color: color('back-brown');
+
+  @include above('tablet-large') {
+    @include padding(1rem, 3rem, 1rem, 3rem);
+    font-size: rem(14px);
+    letter-spacing: rem(2.5px);
+  }
+
+  &:hover {
+    color: color('white');
+    background-color: color('poppy');
+  }
+}
+
+.btn--secondary {
+  max-width: max-content;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid color('poppy');
+  @include use-text-style('btn-font');
+  letter-spacing: rem(1.4px);
+
+  @include above('tablet-large') {
+    min-width: max-content;
+    font-size: rem(12px);
+    letter-spacing: rem(2px);
+    padding-bottom: 0.3rem;
+  }
+
+  &:hover {
+    color: color('poppy');
+  }
+}
+
+.btn--white {
+  color: white;
+}

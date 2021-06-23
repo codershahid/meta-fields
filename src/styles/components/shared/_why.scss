@@ -1,0 +1,87 @@
+/**
+*
+* @why-section Component
+*
+*/
+// @block
+$component: '.why';
+
+#{$component} {
+  position: relative;
+  padding-top: 1.4rem;
+  transform: translateY(-2.5rem);
+
+  @include above('mobile-large') {
+    transform: translateY(0);
+  }
+
+  @include above('tablet-large') {
+    // transform: translateY(-4rem);
+  }
+
+  @include above('desktop') {
+    padding-top: 7.5rem;
+    transform: translateY(0);
+  }
+}
+
+// @__element
+#{$component}__story {
+  @include padding(0, 2.3rem, 0, 1.7rem);
+  @include use-text-style('ivy-light');
+  font-size: rem(21px);
+  letter-spacing: rem(1.75px);
+  line-height: 1.75;
+  transform: translateY(2.5rem);
+
+  @include above('tablet-large') {
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    width: 52%;
+
+    font-size: rem(32px);
+    letter-spacing: rem(2px);
+    line-height: 1.5;
+  }
+
+  @include above('desktop') {
+    top: 9.5rem;
+    right: 5.2rem;
+    font-size: rem(42px);
+  }
+}
+
+#{$component}__image {
+  display: block;
+  text-align: right;
+
+  @include above('tablet-large') {
+    width: 55%;
+    text-align: left;
+  }
+}
+
+#{$component}__iconGrid {
+  @include padding(3.5rem, 1rem, 3.2rem, 1.4rem);
+
+  @include above('mobile-large') {
+    position: absolute;
+    top: 10rem;
+    left: 0.5rem;
+  }
+
+  @include above('tablet-large') {
+    top: 25rem;
+    right: 0.5rem;
+    left: auto;
+
+    display: flex;
+    justify-content: space-between;
+    width: 48%;
+  }
+  @include above('desktop') {
+    top: 38.2rem;
+    right: 3rem;
+  }
+}

@@ -1,0 +1,170 @@
+/// @access private
+/// @link https://www.oddbird.net/accoutrement/docs/type.html
+
+/// Defined fonts
+$fonts: (
+  'wot': (
+    'name': 'wotfard',
+    'formats': 'ttf',
+    'stack': (
+      sans-serif,
+    ),
+    'normal': 'wotfard-regular',
+    '200': 'wotfard-extrathin',
+    '300': 'wotfard-thin',
+    '400': 'wotfard-light',
+    '500': 'wotfard-medium',
+    '600': 'wotfard-semibold',
+    '700': 'wotfard-bold',
+  ),
+  'ivy': (
+    'name': 'ivyMode',
+    'formats': 'otf',
+    'stack': (
+      'ivymode',
+      sans-serif,
+    ),
+    'normal': 'IvyMode-regular',
+    '200': 'IvyMode-thin',
+    '300': 'IvyMode-light',
+    '400': 'IvyMode-semibold',
+    '500': 'IvyMode-bold',
+  ),
+  'LaLuxes': (
+    'name': 'LaLuxesScript',
+    'formats': 'ttf',
+    'stack': (
+      'La Luxes',
+      sans-serif,
+    ),
+    'normal': 'LaLuxesScript',
+  ),
+  'primary': '#wot',
+  'secondary': '#ivy',
+  'tertiary': '#LaLuxes',
+);
+
+// Import all local fonts
+@include import-webfonts;
+
+$typography: (
+  'body': (
+    'font': '#primary',
+    'size': size('text'),
+    'height': 1,
+    'weight': normal,
+    'space': 0.5px,
+  ),
+  'heading': (
+    'font': '#primary',
+    'weight': 300,
+  ),
+  'heading-1': (
+    'size': size('h1'),
+  ),
+  'heading-2': (
+    'size': size('h2'),
+  ),
+  'heading-3': (
+    'size': size('h3'),
+  ),
+  'heading-4': (
+    'size': size('h4'),
+  ),
+  'paragraph': (
+    'size': size('text'),
+    'height': 1.5,
+  ),
+  'buttons': (
+    'size': size('text'),
+    'height': 1.5,
+    'weight': normal,
+  ),
+  'button-primary': (),
+  'button-secondary': (),
+  'navigation': (
+    'size': 0.75rem,
+    'weight': 700,
+    'space': 1px,
+  ),
+  'menu-items': (
+    'font': '#primary',
+    'size': 14px,
+    'height': 1,
+    'weight': 500,
+    'space': 2.15px,
+  ),
+  'title-wot': (
+    'font': '#primary',
+    'size': 3rem,
+    'height': 1,
+    'weight': normal,
+    'space': 0.125rem,
+  ),
+  'title-ivy': (
+    'font': '#secondary',
+    'size': 3rem,
+    'height': 1.2,
+    'weight': 200,
+  ),
+  'section-heading': (
+    'font': '#secondary',
+    'weight': 200,
+    'size': 2rem,
+  ),
+  'wot-face': (
+    'font': '#primary',
+  ),
+  'wot-regular': (
+    'font': '#primary',
+    'weight': normal,
+  ),
+  'wot-light': (
+    'font': '#primary',
+    'weight': 400,
+  ),
+  'ivy-regular': (
+    'font': '#primary',
+    'weight': normal,
+  ),
+  'ivy-light': (
+    'font': '#secondary',
+    'weight': 300,
+  ),
+  'la-regular': (
+    'font': '#tertiary',
+    'weight': normal,
+  ),
+  'btn-font': (
+    'font': 'primary',
+    'size': 10px,
+    'weight': 'normal',
+  ),
+);
+
+/// Set text style.
+/// @param {string} $token - One of keys of $typography map above.
+
+@mixin use-text-style($token: 'body') {
+  $type: get-token($typography, $token);
+
+  @if (get-token($type, 'font') != 'font') {
+    font-family: font-family(get-token($type, 'font'));
+  }
+
+  @if (get-token($type, 'size') != 'size') {
+    font-size: get-token($type, 'size');
+  }
+
+  @if (get-token($type, 'weight') != 'weight') {
+    font-weight: get-token($type, 'weight');
+  }
+
+  @if (get-token($type, 'height') != 'height') {
+    line-height: get-token($type, 'height');
+  }
+
+  @if (get-token($type, 'spacing') != 'spacing') {
+    letter-spacing: get-token($type, 'spacing') * 1rem / 10;
+  }
+}
