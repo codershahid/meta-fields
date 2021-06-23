@@ -1,0 +1,43 @@
+$component: '.how-much';
+
+#{$component}{
+    margin: 10rem auto;
+    padding: 3rem 0;
+    background-color: blanchedalmond;
+    display: none;
+}
+
+#{$component}__heading{
+    margin: auto;
+    text-align: center;
+    
+    @include above('tablet-large'){
+        width: 60%;
+    }
+}
+#{$component}__title{
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+#{$component}__content{
+    margin: auto;
+    margin-top: 2rem;
+    
+    @include above('tablet-large'){
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+#{$component}__item{
+    width: 33.3333%;
+    padding: 15px;
+}
+
+#{$component}__item-title{
+    font-size: 12px;
+    font-family: proximaNovaCondensed,helvetica,arial,sans-serif;
+}

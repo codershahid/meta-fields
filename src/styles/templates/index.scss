@@ -11,31 +11,32 @@
 @import './src/design-tokens/index';
 
 // Shared components
-@import './src/styles/components/shared/content-section';
-@import './src/styles/components/shared/hero';
-@import './src/styles/components/shared/bestseller';
-@import './src/styles/components/shared/why';
-@import './src/styles/components/shared/why-icon';
-@import './src/styles/components/shared/certify-section';
-@import './src/styles/components/shared/collection-slider';
-@import './src/styles/components/shared/product-item';
-@import './src/styles/components/shared/collection-item';
-@import './src/styles/components/shared/feature-section';
-@import './src/styles/components/shared/card';
-@import './src/styles/components/shared/accordion';
-@import './src/styles/components/shared/section-title';
+// @import './src/styles/components/shared/content-section';
+// @import './src/styles/components/shared/hero';
+// @import './src/styles/components/shared/bestseller';
+// @import './src/styles/components/shared/why';
+// @import './src/styles/components/shared/why-icon';
+// @import './src/styles/components/shared/certify-section';
+// @import './src/styles/components/shared/collection-slider';
+// @import './src/styles/components/shared/product-item';
+// @import './src/styles/components/shared/collection-item';
+// @import './src/styles/components/shared/feature-section';
+// @import './src/styles/components/shared/card';
+// @import './src/styles/components/shared/accordion';
+// @import './src/styles/components/shared/section-title';
+@import './src/styles/components/shared/how-much';
 
-.bgContainer {
-  position: absolute;
-  z-index: -1;
-  top: 625px;
-  width: 100%;
+// .bgContainer {
+//   position: absolute;
+//   z-index: -1;
+//   top: 625px;
+//   width: 100%;
 
-  & img {
-    width: 100%;
-  }
+//   & img {
+//     width: 100%;
+//   }
 
-  @include below('mobile-large') {
-    top: 20rem;
-  }
-}
+//   @include below('mobile-large') {
+//     top: 20rem;
+//   }
+// }
